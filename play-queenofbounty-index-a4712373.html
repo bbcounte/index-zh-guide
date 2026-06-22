@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>赏金女王 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf9f7;
+      color: #2c2b2a;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    /* 卡片统一样式 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.03);
+      padding: 2rem 2rem 2.25rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    /* 标题层级 —— 清爽留白 */
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #1b1a19;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      margin-bottom: 1rem;
+      color: #2c2b2a;
+      border-bottom: 1px solid #eeece8;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 520;
+      margin: 1.25rem 0 0.5rem;
+      color: #3e3c3a;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #3e3c3a;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #1f5e8a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b6cbd9;
+    }
+
+    a:hover {
+      color: #003457;
+      text-decoration-color: #1f5e8a;
+    }
+
+    /* 英雄区视觉 */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-visual .subhead {
+      font-size: 1rem;
+      color: #6b6966;
+      margin-top: -0.2rem;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tagline {
+      background: #f0ede9;
+      border-radius: 40px;
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.85rem;
+      color: #3e3c3a;
+      margin-top: 0.2rem;
+      margin-bottom: 1rem;
+      font-weight: 460;
+    }
+
+    /* 卡片网格 (适合人群) */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .grid-item {
+      background: #f7f5f2;
+      border-radius: 18px;
+      padding: 1rem 1.2rem;
+      transition: background 0.15s ease;
+    }
+
+    .grid-item strong {
+      display: block;
+      font-weight: 540;
+      margin-bottom: 0.25rem;
+      color: #1b1a19;
+    }
+
+    .grid-item span {
+      font-size: 0.92rem;
+      color: #5b5956;
+      line-height: 1.5;
+    }
+
+    /* 用途卡片 —— 横向装饰 */
+    .use-case-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .use-chip {
+      background: #f1ede8;
+      border-radius: 40px;
+      padding: 0.35rem 1.3rem;
+      font-size: 0.9rem;
+      color: #2c2b2a;
+      transition: all 0.1s ease;
+      border: 1px solid transparent;
+    }
+
+    .use-chip:hover {
+      background: #e8e2da;
+      border-color: #d6ccc2;
+    }
+
+    /* 引用 / 说明块 */
+    .note-box {
+      background: #f4f1ed;
+      border-left: 4px solid #b3a99c;
+      border-radius: 0 14px 14px 0;
+      padding: 1rem 1.4rem;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .note-box p {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-item {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #ded9d2;
+    }
+
+    .faq-item:first-of-type {
+      border-top: none;
+      margin-top: 0.4rem;
+      padding-top: 0;
+    }
+
+    .faq-q {
+      font-weight: 520;
+      color: #2c2b2a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #53514e;
+      font-size: 0.95rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* 小提示微调 */
+    .meta-note {
+      font-size: 0.88rem;
+      color: #6b6966;
+      margin-top: 0.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e3dfd8;
+      margin: 1.8rem 0 0.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- 主视觉卡片 -->
+  <div class="card hero-visual">
+    <span class="hero-tagline">信息卡片 · 站点说明</span>
+    <h1>赏金女王<br>介绍与可信说明</h1>
+    <p class="subhead">一个围绕赏金女王展开的轻松站点，提供玩法指引与社群氛围。</p>
+    <p>
+      如果你对 <a href="https://play-queenofbounty.com">赏金女王</a> 感兴趣，想了解这个平台到底在做什么、适合怎样的人、有什么典型玩法，那么这篇介绍能帮你快速建立整体印象。我们力求用生活化的语言，把站点的定位和细节讲清楚。
+    </p>
+  </div>
+
+  <!-- 用途卡片 -->
+  <div class="card">
+    <h2>📌 站点用途</h2>
+    <p>play-queenofbounty.com 并非一个单一功能的页面，而是围绕赏金女王主题设计的轻量信息聚合。你可以在站内找到以下内容：</p>
+    <div class="use-case-list">
+      <span class="use-chip">玩法速览</span>
+      <span class="use-chip">规则简介</span>
+      <span class="use-chip">场景提示</span>
+      <span class="use-chip">常见问题</span>
+      <span class="use-chip">反馈渠道</span>
+    </div>
+    <p style="margin-top: 1.1rem;">
+      每个板块都保持了简洁克制的风格，没有冗余的营销弹窗，也没有夸大的引导语。目的是让访问者自主阅读、自行判断。
+    </p>
+
+    <h3>为什么值得花几分钟浏览？</h3>
+    <p>因为不少朋友第一次接触“赏金女王”这个名称时，会好奇它到底是一个游戏、一个社区还是一个工具。站点用直接的卡片和段落回答了这类基础疑问，让你不用反复搜索。</p>
+    <div class="note-box">
+      <p>💡 站点不收集用户隐私信息，也不要求注册或下载。所有说明均基于公开信息整理，请放心浏览。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群卡片（网格） -->
+  <div class="card">
+    <h2>🧑‍🤝‍🧑 适合人群</h2>
+    <p>无论你是偶然看到这个词，还是被朋友推荐过来，下面几类人最容易在这里找到共鸣：</p>
+    <div class="grid-2col">
+      <div class="grid-item">
+        <strong>🎯 休闲探索者</strong>
+        <span>喜欢轻松看看新内容，不想被强制注册或下载软件。</span>
+      </div>
+      <div class="grid-item">
+        <strong>🧩 玩法好奇者</strong>
+        <span>对“赏金女王”这个设定感兴趣，想了解基础逻辑和特点。</span>
+      </div>
+      <div class="grid-item">
+        <strong>📖 信息核对者</strong>
+        <span>希望看到一个干净、不带误导说明的站点，用来对比其他来源的信息。</span>
+      </div>
+      <div class="grid-item">
+        <strong>🤝 社群氛围关注者</strong>
+        <span>更看重平台调性是否友好，页面风格是否符合个人喜好。</span>
+      </div>
+    </div>
+    <p class="meta-note" style="margin-top: 1.2rem;">以上分类只是参考，实际站点内容对所有访问者开放，没有任何门槛。</p>
+  </div>
+
+  <!-- 自然链接段落 + FAQ 摘要 -->
+  <div class="card">
+    <h2>🔗 关于赏金女王的一些说明</h2>
+    <p>
+      站点的核心话题始终围绕 <a href="https://play-queenofbounty.com">赏金女王</a> 展开，但并不是一个营销落地页。它的存在更像一个友好的“说明书”或“指路牌”，帮你理解这个主题的背景和常见用法。如果你之前在其他地方看到过零散的信息，这里可以帮你串联起来。
+    </p>
+    <p>
+      我们也注意到，网上有些描述可能比较模糊或夸大。本站采用平实的语言，不渲染气氛，不制造焦虑，只陈述可见的事实和功能。如果你觉得某个部分不够清楚，页面底部提供了简要的 FAQ 摘要。
+    </p>
+
+    <hr>
+
+    <div class="faq-item">
+      <div class="faq-q">❓ 赏金女王是免费的吗？</div>
+      <div class="faq-a">站内介绍的内容不涉及付费环节，所有说明都基于公开可查的信息。具体产品层面请以实际体验为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">❓ 需要下载客户端吗？</div>
+      <div class="faq-a">不需要。站点本身是纯网页，也没有提供任何下载链接。如果你看到第三方要求下载，请务必留心。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">❓ 页面信息会定期更新吗？</div>
+      <div class="faq-a">会。我们会根据公开信息的变化适度调整卡片内容和说明，但不会频繁变动，保持稳定可靠。</div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 0.95rem;">
+      以上 FAQ 只覆盖了最常被问到的问题。更多细节建议直接访问 <a href="https://play-queenofbounty.com">赏金女王</a> 页面浏览。
+    </p>
+  </div>
+
+  <!-- 收尾极简说明 -->
+  <div style="text-align: left; padding: 0.5rem 0 1rem; border-top: 1px solid #e3dfd8; margin-top: 0.8rem;">
+    <p style="font-size: 0.82rem; color: #6b6966;">
+      本站为独立介绍页，与官方无直接关联。内容仅供信息参考，不构成任何承诺或诱导。
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
