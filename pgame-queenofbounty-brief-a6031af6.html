@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>赏金女王 · 简明指南与访问提醒</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f8f6f0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+      line-height: 1.7;
+      color: #2c2b28;
+      padding: 0 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1.8rem 0 3.5rem;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 0.75rem 0 1rem;
+      border-bottom: 1px solid #e0dbd0;
+      margin-bottom: 2.8rem;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+      color: #7b5f3f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: #5a4a37;
+      text-decoration: none;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #b3926a;
+      color: #3f3324;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+      color: #3f3324;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #6f6150;
+      border-left: 4px solid #c7b69b;
+      padding-left: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .hero .sub strong {
+      color: #4d3e2b;
+    }
+
+    /* 介绍段落 */
+    .intro-text {
+      margin-bottom: 2.4rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.1rem;
+    }
+
+    /* 引用提示框 */
+    .notice-box {
+      background-color: #ede9df;
+      border-left: 6px solid #b3926a;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0 2.4rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.98rem;
+      color: #3c3429;
+    }
+
+    .notice-box strong {
+      color: #5f4a30;
+    }
+
+    .notice-box a {
+      color: #5f4a30;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #c7b69b;
+    }
+
+    .notice-box a:hover {
+      color: #332b1f;
+    }
+
+    /* 三个场景模块 */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 2.8rem 0 2.2rem;
+    }
+
+    .scene-card {
+      flex: 1 1 200px;
+      min-width: 170px;
+      background: #fcfaf5;
+      padding: 1.4rem 1.2rem 1.6rem;
+      border: 1px solid #e3ddd0;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 4px 12px rgba(128, 108, 78, 0.08);
+    }
+
+    .scene-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #4d3e2b;
+      border-bottom: 1px dashed #dbd1c0;
+      padding-bottom: 0.3rem;
+    }
+
+    .scene-card p {
+      font-size: 0.93rem;
+      color: #4f4539;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      margin: 2.8rem 0 2.2rem;
+      border-top: 1px solid #e3ddd0;
+      padding-top: 2rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #3f3324;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item .question {
+      font-weight: 500;
+      color: #4d3e2b;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .answer {
+      padding-left: 0.6rem;
+      border-left: 2px solid #ddd5c5;
+      color: #5b5144;
+      font-size: 0.94rem;
+    }
+
+    .faq-item .answer a {
+      color: #5f4a30;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 3.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e0dbd0;
+      font-size: 0.88rem;
+      color: #7b715f;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      .page-wrap {
+        padding: 1rem 0 2.5rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .scenes {
+        flex-direction: column;
+      }
+      .notice-box {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="nav-brand">赏金指南</span>
+    <span class="nav-links">
+      <a href="#intro">简介</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </span>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>赏金女王 · 简明访问提醒</h1>
+    <div class="sub">
+      轻量导航 · 从指南与访问提示的角度<br>
+      <strong>日常浏览，保持轻松与条理</strong>
+    </div>
+  </div>
+
+  <!-- 核心介绍 -->
+  <div class="intro-text" id="intro">
+    <p><strong>赏金女王</strong> 是一个以策略与收获感为主线的内容站点，许多用户将其作为日常资讯与轻探索的入口。为了让你更快熟悉环境，我们整理了一份简明的指南和注意事项——没有复杂的操作，只有实用的提醒。</p>
+    <p>无论你是第一次接触，还是希望回顾一些基础设定，下面的场景划分和常见说明都能帮你节省时间。页面中的每个模块都围绕实际使用场景展开，不堆砌术语，只保留对你有用的信息。</p>
+  </div>
+
+  <!-- 提示框 / 引用块 -->
+  <div class="notice-box">
+    <strong>💡 访问提示：</strong> 建议使用浏览器自带翻译或保持默认语言，以便完整阅读说明。部分内容可能根据地区调整，如果遇到显示差异，可以尝试清除缓存或更换网络环境。如需直接进入站点，请点击 <a href="https://pgame-queenofbounty.com">赏金女王</a>，页面会在新标签或当前窗口打开。
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes" id="scenes">
+    <div class="scene-card">
+      <h3>📖 资讯浏览</h3>
+      <p>适合每天花几分钟翻阅更新，了解动态与基础玩法。页面结构清晰，重点信息通常位于首屏或卡片区域。</p>
+    </div>
+    <div class="scene-card">
+      <h3>🧭 功能探索</h3>
+      <p>如果你对互动或自定义内容感兴趣，可以从导航栏的二级入口开始。大部分功能不需要注册即可试用。</p>
+    </div>
+    <div class="scene-card">
+      <h3>🔐 安全与隐私</h3>
+      <p>留意浏览器地址栏的 HTTPS 标识，避免在公共设备保存密码。官方不会主动索取个人敏感信息。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-section" id="faq">
+    <h2>常见说明 · 快速参考</h2>
+
+    <div class="faq-item">
+      <div class="question">Q: 页面加载缓慢或部分内容无法显示怎么办？</div>
+      <div class="answer">首先检查网络连接，其次尝试关闭广告拦截插件或隐私模式。大部分问题可以通过刷新或更换浏览器解决。如果持续异常，可以稍后再试。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Q: 是否有多语言或区域版本？</div>
+      <div class="answer">目前主要以中文内容为主，部分界面可能跟随系统语言。你可以在页面底部或设置区域查看语言切换选项（如有）。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Q: 如何快速回到首页或找到核心内容？</div>
+      <div class="answer">直接点击顶部导航的品牌名称，或使用浏览器返回按钮。另外，你也可以通过 <a href="https://pgame-queenofbounty.com">赏金女王</a> 直达主站点。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="question">Q: 需要注册或下载软件吗？</div>
+      <div class="answer">浏览公开内容通常不需要注册。部分互动功能可能要求登录，但绝大多数信息无需额外操作即可阅读。</div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    内容仅供参考 · 页面风格为轻量导航式 · 基于公开信息整理
+  </div>
+</div>
+</body>
+</html>
